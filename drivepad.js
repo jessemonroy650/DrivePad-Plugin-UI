@@ -24,7 +24,7 @@ var drivePad = {
 		}
 		// get the center of our circle, and it's radius
 		[drivePad.cx, drivePad.cy, drivePad.radius] = drivePad.getCenter(circleId);
-		console.log("center", drivePad.cx, drivePad.cy, drivePad.radius);
+		window.console.log("center", drivePad.cx, drivePad.cy, drivePad.radius);
 	},
 	handleClick : function(e) {
 		// e = point clicked

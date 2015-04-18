@@ -39,7 +39,7 @@
 		// http://stackoverflow.com/questions/7042611/override-console-log-for-production
 		var console = {};
 		console.log = function(dbug){
-			myConsole.innerHTML = myConsole.innerHTML + JSON.stringify(dbug) + "\n";
+			myConsole.innerHTML = JSON.stringify(dbug) + "\n" + myConsole.innerHTML;
 		};
 		window.console = console;
 
