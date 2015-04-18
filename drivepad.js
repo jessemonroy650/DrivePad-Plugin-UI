@@ -54,7 +54,7 @@ var drivePad = {
 		// we'll use the left, top plus the radius to get our circle center
 		cx = boundObj.left + radius;
 		cy = boundObj.top + radius;
-		console.log("get", cx, cy, radius);
+		//console.log("get", cx, cy, radius);
 		return [cx, cy, radius];
 	}
 };
