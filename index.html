@@ -36,6 +36,13 @@
 		console.log(r);
 	}
 	function onDeviceReady() {
+		// http://stackoverflow.com/questions/7042611/override-console-log-for-production
+		var console = {};
+		console.log = function(dbug){
+			myConsole.innerHTML = JSON.stringify(dbug) + "\n" + myConsole.innerHTML;
+		};
+		window.console = console;
+
 		myCircle = document.getElementById("circle");
 		myResults = document.getElementById("results");
 		myX = document.getElementById("x");
@@ -47,12 +54,6 @@
 		drivePad.init('click', myCircle, document.body, showResults);
 		myCX.innerHTML = drivePad.cx;
 		myCY.innerHTML = drivePad.cy;
-		// http://stackoverflow.com/questions/7042611/override-console-log-for-production
-		var console = {};
-		console.log = function(dbug){
-			myConsole.innerHTML = JSON.stringify(dbug) + "\n" + myConsole.innerHTML;
-		};
-		window.console = console;
 
 		alert("device ready.");
 	}
