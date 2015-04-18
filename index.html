@@ -25,6 +25,8 @@
 	var myResults = null;
 	var myX = null;
 	var myY = null;
+	var myCX = null;
+	var myCY = null;
 	//
 	function showResults(r) {
 		myResults.innerHTML = r.inside;
@@ -42,8 +44,12 @@
 		myResults = document.getElementById("results");
 		myX = document.getElementById("x");
 		myY = document.getElementById("y");
+		myCX = document.getElementById("cx");
+		myCY = document.getElementById("cy");
 		drivePad.init('click', myCircle, document.body, showResults);
-		alert("body loaded.");
+		myCX.innerHTML = drivePad.cx;
+		myCY.innerHTML = drivePad.cy;
+		//alert("body loaded.");
 	}
     </script>
 </head>
@@ -58,6 +64,7 @@
 	<div id=circle></div>
 	<div>isPointInCircle: <span id=results>false</span></div>
 	<div>click: x:<span id=x>x</span>,y:<span id=y>y</span></div>
+	<div>center: cx:<span id=cx>cx</span>,cy:<span id=cy>cy</span></div>
 </div>
 
 <div class="copyright" style="padding:5px;align:left;font-style:italic;font-size:small;">
