@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.bsdmasterindex.DrivePadUI-plugin"
+        version     = "0.8"
+        versionCode = "10" >
+        <!-- versionCode is optional and Android only -->
+        <preference name="phonegap-version" value="3.5.0" />
+
+        <name>DrivePad plugin</name>
+        <description>Demo of Drivepad UI plugin</description>
+        <author href="http://bsdmasterindex.com" email="jessemonroy650@yahoo.com">
+        Jesse Monroy
+        </author>
+        <gap:platform name="android" />
+		<gap:platform name="ios" />
+
+        <preference name="permissions" value="none"/>
+    </widget>
