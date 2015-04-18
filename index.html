@@ -36,9 +36,10 @@
 		console.log(r);
 	}
 	function onDeviceReady() {
+		// http://stackoverflow.com/questions/7042611/override-console-log-for-production
 		var console = {};
 		console.log = function(dbug){
-			myConsole.innerHTML = myConsole.innerHTML + dbug + "\n";
+			myConsole.innerHTML = myConsole.innerHTML + JSON.stringify(dbug) + "\n";
 		};
 		window.console = console;
 
