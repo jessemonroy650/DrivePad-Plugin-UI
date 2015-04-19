@@ -28,8 +28,11 @@ var drivePad = {
 		//alert('added listener');
 		// get the center of our circle, and it's radius
 		// http://www.w3schools.com/js/js_function_invocation.asp
-		[drivePad.cx, drivePad.cy, drivePad.radius] = drivePad.getObjectCenter(circleId);
-		console.log('center', drivePad.cx, drivePad.cy, drivePad.radius);
+		var data = drivePad.getObjectCenter(circleId);
+		drivePad.cx = data[0];
+		drivePad.cy = data[1];
+		drivePad.radius = data[2];
+		//console.log('center', drivePad.cx, drivePad.cy, drivePad.radius);
 	},
 	handleClick : function(e) {
 		// e = point clicked
@@ -60,7 +63,7 @@ var drivePad = {
 		// we'll use the left, top plus the radius to get our circle center
 		var cx = boundObj.left + radius;
 		var cy = boundObj.top + radius;
-		console.log("get", cx, cy, radius);
+		//console.log("get", cx, cy, radius);
 		return [cx, cy, radius];
 	}
 
