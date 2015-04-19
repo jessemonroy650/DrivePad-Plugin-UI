@@ -9,6 +9,7 @@ var drivePad = {
 	radius : null,
 	//
 	init : function(type, circleId, watchId, callback) {
+		alert("got init");
 		// save the callback
 		theCallback = callback;
 		// assign a handler
@@ -50,6 +51,7 @@ var drivePad = {
 		// myCircle = the circle on the screen
 		// https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIDOMClientRect
 		var boundObj = myCircle.getBoundingClientRect();
+		alert('boundObj is:' + boundObj);
 		radius   = boundObj.height/2;
 		// we'll use the left, top plus the radius to get our circle center
 		cx = boundObj.left + radius;
