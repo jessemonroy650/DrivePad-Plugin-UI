@@ -1,3 +1,18 @@
+function	getObjectCenter(myCircle) {
+		alert('getObjectCenter');
+		// myCircle = the circle on the screen
+		// https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIDOMClientRect
+		var boundObj = myCircle.getBoundingClientRect();
+		alert('boundObj is:' + boundObj);
+		radius   = boundObj.height/2;
+		// we'll use the left, top plus the radius to get our circle center
+		cx = boundObj.left + radius;
+		cy = boundObj.top + radius;
+		//console.log("get", cx, cy, radius);
+		return [cx, cy, radius];
+	}
+
+
 /*
 	DrivePad v0.8 - initial release. touch not working, yet.
 */
@@ -54,16 +69,3 @@ var drivePad = {
 };
 
 
-function	getObjectCenter(myCircle) {
-		alert('getCenter');
-		// myCircle = the circle on the screen
-		// https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIDOMClientRect
-		var boundObj = myCircle.getBoundingClientRect();
-		alert('boundObj is:' + boundObj);
-		radius   = boundObj.height/2;
-		// we'll use the left, top plus the radius to get our circle center
-		cx = boundObj.left + radius;
-		cy = boundObj.top + radius;
-		//console.log("get", cx, cy, radius);
-		return [cx, cy, radius];
-	}
