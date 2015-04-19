@@ -28,7 +28,7 @@ var drivePad = {
 		//alert('added listener');
 		// get the center of our circle, and it's radius
 		// http://www.w3schools.com/js/js_function_invocation.asp
-		[drivePad.cx, drivePad.cy, drivePad.radius] = window.drivePad.getCenter(circleId);
+		[drivePad.cx, drivePad.cy, drivePad.radius] = getObjectCenter(circleId);
 		console.log('center', drivePad.cx, drivePad.cy, drivePad.radius);
 	},
 	handleClick : function(e) {
@@ -51,7 +51,10 @@ var drivePad = {
 		//console.log("checking", x, y, cx, cy, radius);
 		return ((x-cx)*(x-cx)) + ((y-cy)*(y-cy)) < radius*radius;
 	},
-	getCenter : function(myCircle) {
+};
+
+
+function	getObjectCenter(myCircle) {
 		alert('getCenter');
 		// myCircle = the circle on the screen
 		// https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIDOMClientRect
@@ -64,6 +67,3 @@ var drivePad = {
 		//console.log("get", cx, cy, radius);
 		return [cx, cy, radius];
 	}
-};
-
-
