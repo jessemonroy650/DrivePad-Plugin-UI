@@ -13,6 +13,9 @@
 	/* REMINDER: border-radius must always be half of height/width */
 	#circle {height:100px;width:100px;border-radius:50px;background-color:#8888ee;}
     </style>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <!-- <script type="text/javascript" charset="utf-8" src="fastclick.js"></script> -->
+    <script type="text/javascript" charset="utf-8" src="drivepad.js"></script>
     <script type="text/javascript">
 	//
     // Wait for PhoneGap to load
@@ -26,6 +29,12 @@
 	var myCY = null;
 	var myConsole = null;
 	//
+	function showResults(r) {
+		myResults.innerHTML = r.inside;
+		myX.innerHTML = r.x;
+		myY.innerHTML = r.y;
+		console.log(r);
+	}
 	function onDeviceReady() {
 
 		myCircle  = document.getElementById("circle");
@@ -36,16 +45,12 @@
 		myCY = document.getElementById("cy");
 		myConsole = document.getElementById("dbug_console");
 		//
-		alert('getObjectCenter');
-		// myCircle = the circle on the screen
-		// https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIDOMClientRect
-		var boundObj = myCircle.getBoundingClientRect();
-		alert('boundObj is:' + JSON.stringify(boundObj));
-		radius   = boundObj.height/2;
-		// we'll use the left, top plus the radius to get our circle center
-		cx = boundObj.left + radius;
-		cy = boundObj.top + radius;
-		myCY.innerHTML = "get:" + ','+ cx + ',' + cy + ',' + radius;
+		drivePad.init('click', myCircle, document.body, showResults);
+		myCX.innerHTML = drivePad.cx;
+		myCY.innerHTML = drivePad.cy;
+
+		//alert("device ready.");
+		//alert(getObjectCenter(myCircle));
 	}
 	//
 	function onLoad() {
@@ -74,9 +79,22 @@
     <span id=copyright>Created by Jesus Monroy, Jr. &copy; 2015</span>
 </div>
 </body>
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <!-- <script type="text/javascript" charset="utf-8" src="fastclick.js"></script> -->
-    <script type="text/javascript" charset="utf-8" src="drivepad.js"></script>
+
+<script type="text/javascript">
+function	getObjectCenter(myCircle) {
+		alert('getObjectCenter');
+		// myCircle = the circle on the screen
+		// https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIDOMClientRect
+		var boundObj = myCircle.getBoundingClientRect();
+		//alert('boundObj is:' + boundObj);
+		radius   = boundObj.height/2;
+		// we'll use the left, top plus the radius to get our circle center
+		cx = boundObj.left + radius;
+		cy = boundObj.top + radius;
+		console.log("get", cx, cy, radius);
+		return [cx, cy, radius];
+	}
+</script>
 </html>
 
 
