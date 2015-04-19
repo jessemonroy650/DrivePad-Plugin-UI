@@ -53,14 +53,14 @@ var drivePad = {
 		// https://developer.mozilla.org/en-US/docs/Web/API/Touch_events#Example
 		e.preventDefault();
 		// We won't use targetTouches, since we may check for "touches" outside of our <div>
-		touchM = e.targetTouches;
+		//touchM = e.targetTouches;
 		// http://stackoverflow.com/questions/9585487/cant-get-coordinates-of-touchevents-in-javascript-on-android-devices
 		// We won't use 'touches', since 'touchend' and 'touchcanel' 
 		// See W3C/Sect 5.6
 		// "must not be included in the touches and targetTouches attributes."
-		touchM = e.touches;
+		//touchM = e.touches;
 
-		x = 0; y = 0;
+		var x = 0; var y = 0;
 		// According to the W3C/Sect 5.1, only 'changedTouches' is returned with every event
 		touchM = e.changedTouches;
 		if (touchM.length > 0) {
