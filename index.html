@@ -14,18 +14,6 @@
 	#circle {height:100px;width:100px;border-radius:50px;background-color:#8888ee;}
     </style>
     <script type="text/javascript">
-	// http://stackoverflow.com/questions/7042611/override-console-log-for-production
-	var console = {};
-	var theArgs = "";
-	// http://stackoverflow.com/questions/4116608/pass-unknown-number-of-arguments-into-javascript-function
-	console.log = function() {
-		theArgs = "";
-		for (var i = 0; i < arguments.length; i++) {
-			 theArgs = theArgs + JSON.stringify(arguments[i]) + ',' ;
-		}
-		myConsole.innerHTML = theArgs + "\n" + myConsole.innerHTML;
-	};
-	window.console = console;
 	//
     // Wait for PhoneGap to load
 	document.addEventListener("deviceready", onDeviceReady, false);
@@ -38,12 +26,6 @@
 	var myCY = null;
 	var myConsole = null;
 	//
-	function showResults(r) {
-		myResults.innerHTML = r.inside;
-		myX.innerHTML = r.x;
-		myY.innerHTML = r.y;
-		console.log(r);
-	}
 	function onDeviceReady() {
 
 		myCircle  = document.getElementById("circle");
@@ -54,12 +36,16 @@
 		myCY = document.getElementById("cy");
 		myConsole = document.getElementById("dbug_console");
 		//
-		drivePad.init('click', myCircle, document.body, showResults);
-		myCX.innerHTML = drivePad.cx;
-		myCY.innerHTML = drivePad.cy;
-
-		alert("device ready.");
-		alert(getObjectCenter(myCircle));
+		alert('getObjectCenter');
+		// myCircle = the circle on the screen
+		// https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIDOMClientRect
+		var boundObj = myCircle.getBoundingClientRect();
+		alert('boundObj is:' + JSON.stringify(boundObj));
+		radius   = boundObj.height/2;
+		// we'll use the left, top plus the radius to get our circle center
+		cx = boundObj.left + radius;
+		cy = boundObj.top + radius;
+		myCY.innerHTML = "get:" + ','+ cx + ',' + cy + ',' + radius;
 	}
 	//
 	function onLoad() {
