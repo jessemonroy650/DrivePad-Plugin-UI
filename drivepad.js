@@ -1,9 +1,10 @@
 /*
 	DrivePad v0.8.1 - initial release. touch not working, yet.
 			v0.8.1 - 2015-04-18 - knocked out a nasty Phonegap/Android bug
+			v0.9.0 - 2015-04-19 - touch working
 */
 var drivePad = {
-	Version : '0.8.1',
+	Version : '0.9.0',
 	theCallback : null,
 	cx : null,
 	cy : null,
@@ -49,7 +50,6 @@ var drivePad = {
 	// http://www.w3.org/TR/touch-events/
 	//
 	handleTouch : function(e, altEndFlag) {
-//alert('got a touch');
 		// https://developer.mozilla.org/en-US/docs/Web/API/Touch_events#Example
 		e.preventDefault();
 		// We won't use targetTouches, since we may check for "touches" outside of our <div>
@@ -68,11 +68,9 @@ var drivePad = {
 			x = touchE.pageX;
 			y = touchE.pageY;
 		}
-//alert('isPointInCircle');
 		var results = drivePad.isPointInCircle(x, y, drivePad.cx, drivePad.cy, drivePad.radius);
 		altEndFlag = (typeof altEndFlag === 'undefined') ? false : true;
 		theCallback({"x":x, "y":y, "inside":results, "end": altEndFlag});
-alert('did callback');
 	},
 	handleTouchEnd : function(evt) {
 		drivePad.handleTouch(evt, true);
