@@ -11,7 +11,7 @@
 	.copyright {padding:5px;align:left;font-style:italic;font-size:small;}
 	/* Specific to DrivePad. */
 	/* REMINDER: border-radius must always be half of height/width */
-	#circle {height:200px;width:200px;border-radius:100px;background-color:#8888ee;}
+	#circle {height:200px;width:200px;border-radius:100px;background-color:#4444ee;}
     </style>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <!-- <script type="text/javascript" charset="utf-8" src="fastclick.js"></script> -->
@@ -52,13 +52,12 @@
 		myCX.innerHTML = drivePad.cx;
 		myCY.innerHTML = drivePad.cy;
 
-		//alert("device ready.");
-		//alert(getObjectCenter(myCircle));
+		alert("device ready.");
 	}
 	//
 	function onLoad() {
 		//alert("body loaded.");
-		onDeviceReady();
+		//onDeviceReady();
 	}
     </script>
 </head>
