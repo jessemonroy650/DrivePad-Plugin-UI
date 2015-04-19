@@ -49,7 +49,7 @@ var drivePad = {
 	// http://www.w3.org/TR/touch-events/
 	//
 	handleTouch : function(evt, altEndFlag) {
-alert('got a touch');
+//alert('got a touch');
 		// https://developer.mozilla.org/en-US/docs/Web/API/Touch_events#Example
 		e.preventDefault();
 		// We won't use targetTouches, since we may check for "touches" outside of our <div>
@@ -68,7 +68,7 @@ alert('got a touch');
 			x = touchE.pageX;
 			y = touchE.pageY;
 		}
-		results = drivePad.isPointInCircle(x, y, drivePad.cx, drivePad.cy, drivePad.radius);
+		var results = drivePad.isPointInCircle(x, y, drivePad.cx, drivePad.cy, drivePad.radius);
 		altEndFlag = (typeof altEndFlag === 'undefined') ? false : true;
 		theCallback({"x":x, "y":y, "inside":results, "end": altEndFlag});
 	},
