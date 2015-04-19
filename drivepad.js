@@ -49,6 +49,7 @@ var drivePad = {
 	// http://www.w3.org/TR/touch-events/
 	//
 	handleTouch : function(evt, altEndFlag) {
+alert('got a touch');
 		// https://developer.mozilla.org/en-US/docs/Web/API/Touch_events#Example
 		e.preventDefault();
 		// We won't use targetTouches, since we may check for "touches" outside of our <div>
