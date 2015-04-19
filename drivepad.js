@@ -8,7 +8,7 @@ var drivePad = {
 	cy : null,
 	radius : null,
 	//
-	init : function(type, circleId, watchId, callback) {
+	initf : function(type, circleId, watchId, callback) {
 		alert("got init:" + type);
 		// save the callback
 		theCallback = callback;
