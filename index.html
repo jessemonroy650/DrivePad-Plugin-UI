@@ -11,7 +11,7 @@
 	.copyright {padding:5px;align:left;font-style:italic;font-size:small;}
 	/* Specific to DrivePad. */
 	/* REMINDER: border-radius must always be half of height/width */
-	#circle {height:100px;width:100px;border-radius:50px;background-color:#8888ee;}
+	#circle {height:200px;width:200px;border-radius:100px;background-color:#8888ee;}
     </style>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <!-- <script type="text/javascript" charset="utf-8" src="fastclick.js"></script> -->
@@ -27,12 +27,14 @@
 	var myY = null;
 	var myCX = null;
 	var myCY = null;
+	var myTE = null;
 	var myConsole = null;
 	//
 	function showResults(r) {
 		myResults.innerHTML = r.inside;
 		myX.innerHTML = r.x;
 		myY.innerHTML = r.y;
+		myTE.innerHTML = r.end;
 		console.log(r);
 	}
 	function onDeviceReady() {
@@ -43,9 +45,10 @@
 		myY = document.getElementById("y");
 		myCX = document.getElementById("cx");
 		myCY = document.getElementById("cy");
+		myTE = document.getElementById("touchend");
 		myConsole = document.getElementById("dbug_console");
 		//
-		drivePad.init('click', myCircle, document.body, showResults);
+		drivePad.init('touch', myCircle, document.body, showResults);
 		myCX.innerHTML = drivePad.cx;
 		myCY.innerHTML = drivePad.cy;
 
@@ -68,7 +71,7 @@
 
 <div id=content style="margin:1em;">
 	<div id=circle></div>
-	<div>isPointInCircle: <span id=results>false</span></div>
+	<div>isPointInCircle: <span id=results>false</span><br />touchend:<span id=touchend>false</span></div>
 	<div>click: x:<span id=x>x</span>,y:<span id=y>y</span></div>
 	<div>center: cx:<span id=cx>cx</span>,cy:<span id=cy>cy</span></div>
 	<pre id=dbug_console>
