@@ -68,9 +68,11 @@ var drivePad = {
 			x = touchE.pageX;
 			y = touchE.pageY;
 		}
+alert('isPointInCircle');
 		var results = drivePad.isPointInCircle(x, y, drivePad.cx, drivePad.cy, drivePad.radius);
 		altEndFlag = (typeof altEndFlag === 'undefined') ? false : true;
 		theCallback({"x":x, "y":y, "inside":results, "end": altEndFlag});
+alert('did callback');
 	},
 	handleTouchEnd : function(evt) {
 		drivePad.handleTouch(evt, true);
