@@ -17,6 +17,18 @@
     <!-- <script type="text/javascript" charset="utf-8" src="fastclick.js"></script> -->
     <script type="text/javascript" charset="utf-8" src="drivepad.js"></script>
     <script type="text/javascript">
+	// http://stackoverflow.com/questions/7042611/override-console-log-for-production
+	var console = {};
+	var theArgs = "";
+	// http://stackoverflow.com/questions/4116608/pass-unknown-number-of-arguments-into-javascript-function
+	console.log = function() {
+		theArgs = "";
+		for (var i = 0; i < arguments.length; i++) {
+			 theArgs = theArgs + JSON.stringify(arguments[i]) + ',' ;
+		}
+		myConsole.innerHTML = theArgs + "\n" + myConsole.innerHTML;
+	};
+	window.console = console;
 	//
     // Wait for PhoneGap to load
 	document.addEventListener("deviceready", onDeviceReady, false);
@@ -36,14 +48,8 @@
 		console.log(r);
 	}
 	function onDeviceReady() {
-		// http://stackoverflow.com/questions/7042611/override-console-log-for-production
-		var console = {};
-		console.log = function(dbug){
-			myConsole.innerHTML = JSON.stringify(dbug) + "\n" + myConsole.innerHTML;
-		};
-		window.console = console;
 
-		myCircle = document.getElementById("circle");
+		myCircle  = document.getElementById("circle");
 		myResults = document.getElementById("results");
 		myX = document.getElementById("x");
 		myY = document.getElementById("y");
@@ -60,6 +66,7 @@
 	//
 	function onLoad() {
 		//alert("body loaded.");
+		onDeviceReady();
 	}
     </script>
 </head>
