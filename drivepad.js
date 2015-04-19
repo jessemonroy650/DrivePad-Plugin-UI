@@ -9,7 +9,7 @@ var drivePad = {
 	radius : null,
 	//
 	init : function(type, circleId, watchId, callback) {
-		alert("got init");
+		alert("got init:" + type);
 		// save the callback
 		theCallback = callback;
 		// assign a handler
@@ -23,6 +23,7 @@ var drivePad = {
 				watchId.addEventListener('touchmove',  drivePad.handleTouch);
 			break;
 		}
+		alert('added listener');
 		// get the center of our circle, and it's radius
 		[drivePad.cx, drivePad.cy, drivePad.radius] = drivePad.getCenter(circleId);
 		console.log("center", drivePad.cx, drivePad.cy, drivePad.radius);
