@@ -17,19 +17,6 @@
     <!-- <script type="text/javascript" charset="utf-8" src="fastclick.js"></script> -->
     <script type="text/javascript" charset="utf-8" src="drivepad.js"></script>
     <script type="text/javascript">
-function getObjectCenter(myCircle) {
-		alert('getObjectCenter');
-		// myCircle = the circle on the screen
-		// https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIDOMClientRect
-		var boundObj = myCircle.getBoundingClientRect();
-		//alert('boundObj is:' + boundObj);
-		radius   = boundObj.height/2;
-		// we'll use the left, top plus the radius to get our circle center
-		cx = boundObj.left + radius;
-		cy = boundObj.top + radius;
-		console.log("get", cx, cy, radius);
-		return [cx, cy, radius];
-}
 	//
     // Wait for PhoneGap to load
 	document.addEventListener("deviceready", onDeviceReady, false);
@@ -92,9 +79,6 @@ function getObjectCenter(myCircle) {
     <span id=copyright>Created by Jesus Monroy, Jr. &copy; 2015</span>
 </div>
 </body>
-
-<script type="text/javascript">
-</script>
 </html>
 
 
