@@ -32,6 +32,7 @@ var drivePad = {
 		drivePad.cx = data[0];
 		drivePad.cy = data[1];
 		drivePad.radius = data[2];
+		alert('init done');
 		//console.log('center', drivePad.cx, drivePad.cy, drivePad.radius);
 	},
 	handleClick : function(e) {
