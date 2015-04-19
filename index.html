@@ -51,13 +51,14 @@
 		drivePad.init('touch', myCircle, document.body, showResults);
 		myCX.innerHTML = drivePad.cx;
 		myCY.innerHTML = drivePad.cy;
+		drivePad.handleTouch();
 
 		alert("device ready.");
 	}
 	//
 	function onLoad() {
 		//alert("body loaded.");
-		//onDeviceReady();
+		onDeviceReady();
 	}
     </script>
 </head>

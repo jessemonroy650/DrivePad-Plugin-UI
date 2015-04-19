@@ -48,7 +48,7 @@ var drivePad = {
 	//
 	// http://www.w3.org/TR/touch-events/
 	//
-	handleTouch : function(evt, altEndFlag) {
+	handleTouch : function(e, altEndFlag) {
 //alert('got a touch');
 		// https://developer.mozilla.org/en-US/docs/Web/API/Touch_events#Example
 		e.preventDefault();
@@ -68,7 +68,7 @@ var drivePad = {
 			x = touchE.pageX;
 			y = touchE.pageY;
 		}
-alert('isPointInCircle');
+//alert('isPointInCircle');
 		var results = drivePad.isPointInCircle(x, y, drivePad.cx, drivePad.cy, drivePad.radius);
 		altEndFlag = (typeof altEndFlag === 'undefined') ? false : true;
 		theCallback({"x":x, "y":y, "inside":results, "end": altEndFlag});
