@@ -23,10 +23,10 @@ var drivePad = {
 				watchId.addEventListener('touchmove',  drivePad.handleTouch);
 			break;
 		}
-		alert('added listener');
+		//alert('added listener');
 		// get the center of our circle, and it's radius
 		[drivePad.cx, drivePad.cy, drivePad.radius] = drivePad.getCenter(circleId);
-		eval("console.log('center', drivePad.cx, drivePad.cy, drivePad.radius)");
+		console.log('center', drivePad.cx, drivePad.cy, drivePad.radius);
 	},
 	handleClick : function(e) {
 		// e = point clicked
@@ -49,6 +49,7 @@ var drivePad = {
 		return ((x-cx)*(x-cx)) + ((y-cy)*(y-cy)) < radius*radius;
 	},
 	getCenter : function(myCircle) {
+		alert('getCenter');
 		// myCircle = the circle on the screen
 		// https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIDOMClientRect
 		var boundObj = myCircle.getBoundingClientRect();
