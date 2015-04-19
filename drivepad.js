@@ -28,7 +28,8 @@ var drivePad = {
 		//alert('added listener');
 		// get the center of our circle, and it's radius
 		// http://www.w3schools.com/js/js_function_invocation.asp
-		[drivePad.cx, drivePad.cy, drivePad.radius] = getObjectCenter(circleId);
+		/* [drivePad.cx, drivePad.cy, drivePad.radius] = */
+		getObjectCenter(circleId);
 		console.log('center', drivePad.cx, drivePad.cy, drivePad.radius);
 	},
 	handleClick : function(e) {
