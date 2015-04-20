@@ -1,18 +1,24 @@
 # DrivePad-Plugin-UI
 A User Interface element to assist in driving robotic platforms, and other similar tasks.
+DrivePad is intended for touch screen and regular terminals with mice.
 
-If you would like to test the code before download it you can try it at codepen.
+This code will port directly to [Phonegap Build](https://build.phonegap.com/), if you have an account.
+It has been tested with Phonegap 3.5+
+
+The LICENSE is BSD2. You can get release by emailing me.
+
+If you would like to see and test the code before download it, go to codepen.
 
 http://codepen.io/jessemonroy650/public/
 
-At the bottom, you'll find the [i]UI Plugins[/i].
-You want [b]DrivePad Plugin[/b].
-NOTE: This example only works with mice (mouse clicks)
+At the bottom, you'll find the *UI Plugins*.
+You want to try **DrivePad Plugin**.
+
+**NOTE:** *This example only works with mice (mouse clicks)*
 
 ## README 
 
 The Plugin has three (3) important components.
-
 The HTML block, the CSS block, and the Plugin.
 
 ###HTML
@@ -38,16 +44,19 @@ The plugin has three important parts, initialize, callback, returned values.
 * *myCallback*, the function reference to your callback function
 
 **callback**
+
 Your function that does something with the data (returned values, below).
 
-**returned values***
-A JSON will be returned, that include "x", "y", "inside", & "end".
+**returned values**
+
+A JSON will be returned; it includes "x", "y", "inside", & "end".
 
 * "x" - the X coordinate of the touch or click
 * "y" - the Y coordinate of the touch or click
 * "inside" -  a boolean indicating if the touch or click was inside the circle
 * "end" - for touch only, indicates the *end* of touches. That is, the finger was lifted.
 
+*x* & *y* are relative to the viewport (or your screen).
 
 
 
