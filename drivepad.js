@@ -24,6 +24,9 @@ var drivePad = {
 				watchId.addEventListener('touchcancel', drivePad.handleTouchEnd);
 				watchId.addEventListener('touchmove',   drivePad.handleTouch);
 			break;
+			default:
+				return false
+			break;
 		}
 		// get the center of our circle, and it's radius
 		// http://www.w3schools.com/js/js_function_invocation.asp
