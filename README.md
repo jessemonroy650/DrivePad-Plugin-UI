@@ -7,7 +7,7 @@ It has been tested with Phonegap 3.5+
 
 The LICENSE is BSD2. You can get release by emailing me.
 
-If you would like to see and test the code before download it, go to codepen.
+If you would like to test, and play with, the code before download it, go to codepen.
 
 http://codepen.io/jessemonroy650/public/
 
