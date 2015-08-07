@@ -40,12 +40,12 @@ The plugin has three important parts, initialize, callback, returned values.
 ```
 * 'touch' or 'click' are the only two allowed paramters
 * *myCircle*, the object reference of your circle, usually `document.getElementById()`
-* *myContent*, the object reference of an object surrounding you "circle"
+* *myContent*, the object reference of the element surrounding your "circle"
 * *myCallback*, the function reference to your callback function
 
 **callback**
 
-Your function that does something with the data (returned values, below).
+Your function that does something with the data (returned values, see below).
 
 **returned values**
 
@@ -56,7 +56,7 @@ A JSON will be returned; it includes "x", "y", "inside", & "end".
 * "inside" -  a boolean indicating if the touch or click was inside the circle
 * "end" - for touch only, indicates the *end* of touches. That is, the finger was lifted.
 
-*x* & *y* are relative to the viewport (or your screen).
+*x* & *y* are relative to the viewport (or your screen). It is not normalized to the circle.
 
 
 

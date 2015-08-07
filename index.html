@@ -6,74 +6,74 @@
     <link rel="stylesheet" href="buttons.css" />
     <style>
     body {margin:0px;font-size:large;}
-	.hidden {visibility:collapse;display:none;}
-	.expose {visibility:visible;display:block;} /* Here for completeness only. */
-	.copyright {padding:2px 5px;align:left;font-style:italic;font-size:small;}
-	/* Specific to DrivePad. */
-	#app-header {margin:0;padding:0;}
-	/* REMINDER: border-radius must always be half of height/width */
-	#circle {
-		height:280px;width:280px;border-radius:140px;
-		background-color:#2222ee;
-	}
+    .hidden {visibility:collapse;display:none;}
+    .expose {visibility:visible;display:block;} /* Here for completeness only. */
+    .copyright {padding:2px 5px;align:left;font-style:italic;font-size:small;}
+    /* Specific to DrivePad. */
+    #app-header {margin:0;padding:0;}
+    /* REMINDER: border-radius must always be half of height/width */
+    #circle {
+        height:280px;width:280px;border-radius:140px;
+        background-color:#2222ee;
+    }
     </style>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8" src="drivepad.js"></script>
     <script type="text/javascript">
-	//
+    //
     // Wait for PhoneGap to load
-	document.addEventListener("deviceready", onDeviceReady, false);
-	//
-	var myCircle = null;
-	var myResults = null;
-	var myX = null;
-	var myY = null;
-	var myCX = null;
-	var myCY = null;
-	var myTE = null;
-	var myConsole = null;
-	//
-	function showResults(r) {
-		myResults.innerHTML = r.inside;
-		myX.innerHTML = r.x;
-		myY.innerHTML = r.y;
-		myTE.innerHTML = r.end;
-		console.log(r);
-	}
-	function onDeviceReady() {
-		//alert("device ready.");
-		myCircle  = document.getElementById("circle");
-		myResults = document.getElementById("results");
-		myContent = document.getElementById("content");
-		myX = document.getElementById("x");
-		myY = document.getElementById("y");
-		myCX = document.getElementById("cx");
-		myCY = document.getElementById("cy");
-		myTE = document.getElementById("touchend");
-		myConsole = document.getElementById("dbug_console");
-		//
-		drivePad.init('touch', myCircle, myContent, showResults);
-		myCX.innerHTML = drivePad.cx;
-		myCY.innerHTML = drivePad.cy;
-	}
-	//
-	function onLoad() {
-		//alert("body loaded.");
-	}
+    document.addEventListener("deviceready", onDeviceReady, false);
+    //
+    var myCircle = null;
+    var myResults = null;
+    var myX = null;
+    var myY = null;
+    var myCX = null;
+    var myCY = null;
+    var myTE = null;
+    var myConsole = null;
+    //
+    function showResults(r) {
+        myResults.innerHTML = r.inside;
+        myX.innerHTML = r.x;
+        myY.innerHTML = r.y;
+        myTE.innerHTML = r.end;
+        console.log(r);
+    }
+    function onDeviceReady() {
+        //alert("device ready.");
+        myCircle  = document.getElementById("circle");
+        myResults = document.getElementById("results");
+        myContent = document.getElementById("content");
+        myX = document.getElementById("x");
+        myY = document.getElementById("y");
+        myCX = document.getElementById("cx");
+        myCY = document.getElementById("cy");
+        myTE = document.getElementById("touchend");
+        myConsole = document.getElementById("dbug_console");
+        //
+        drivePad.init('touch', myCircle, myContent, showResults);
+        myCX.innerHTML = drivePad.cx;
+        myCY.innerHTML = drivePad.cy;
+    }
+    //
+    function onLoad() {
+        //alert("body loaded.");
+    }
     </script>
 </head>
 <body onload="onLoad()">
 <div id=app-header class="button button-block button-large">
-	<img id=app-icon align=left src=favicon-48x48.png>
-	DrivePad Ui Test
-	<button onclick='navigator.app.exitApp()' class="button button-pill button-primary button-large" style="margin:0.1em;float:right;">Exit</button>
+    <img id=app-icon align=left src=favicon-48x48.png>
+    DrivePad Ui Test
+    <button onclick='navigator.app.exitApp()' class="button button-pill button-primary button-large" style="margin:0.1em;float:right;">Exit</button>
 </div>
 
 <div id=content style="margin:1em;">
-	<div id=circle></div>
-	<div>isPointInCircle: <span id=results>false</span><br />touchend:<span id=touchend>false</span></div>
-	<div>click: x:<span id=x>x</span>,y:<span id=y>y</span></div>
-	<div>center: cx:<span id=cx>cx</span>,cy:<span id=cy>cy</span></div>
+    <div id=circle></div>
+    <div>isPointInCircle: <span id=results>false</span><br />touchend:<span id=touchend>false</span></div>
+    <div>click: x:<span id=x>x</span>,y:<span id=y>y</span></div>
+    <div>center: cx:<span id=cx>cx</span>,cy:<span id=cy>cy</span></div>
 </div>
 
 <div class="copyright" >
